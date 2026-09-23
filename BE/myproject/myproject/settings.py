@@ -26,9 +26,10 @@ SECRET_KEY = 'django-insecure-pqysai-2!_hn6_z1h@88rm*hdps=^d$c!x-=1f%xd(b%+oherg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",   # Vite frontend
     "http://localhost:5174",   # Vite default
     "http://localhost:3000",   # CRA default
 ]
@@ -56,12 +57,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'myproject.urls'
